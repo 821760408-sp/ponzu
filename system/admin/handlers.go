@@ -1512,7 +1512,12 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 				<a href="/admin/contents/export?type=` + t + `&format=csv" class="green darken-4 btn export-post waves-effect waves-light">
 					<i class="material-icons left">system_update_alt</i>
 					CSV
-				</a>`
+				</a>
+				<br/>
+				<div class="btn import-post waves-effect waves-light">
+					<span><i class="material-icons left">present_to_all</i>Upload</span>
+					<input class="upload" type="file">
+				</div>`
 	}
 
 	if _, ok := pt.(format.JSONFormattable); ok {
