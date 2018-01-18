@@ -2,7 +2,6 @@ package admin
 
 import (
 	"bufio"
-	"bytes"
 	"encoding/csv"
 	"encoding/json"
 	"fmt"
@@ -19,7 +18,6 @@ import (
 	"github.com/821760408-sp/ponzu/system/item"
 
 	"github.com/tidwall/gjson"
-	"github.com/tidwall/sjson"
 )
 
 func exportHandler(res http.ResponseWriter, req *http.Request) {
@@ -62,7 +60,7 @@ func exportHandler(res http.ResponseWriter, req *http.Request) {
 		exportCSV(res, req, pt, fields)
 
 	case "json":
-		json, ok := pt().(format.JSONFormattable)
+		ok := pt().(format.JSONFormattable)
 		if !ok {
 			res.WriteHeader(http.StatusBadRequest)
 			return
