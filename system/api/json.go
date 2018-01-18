@@ -7,7 +7,7 @@ import (
 	"net/http"
 )
 
-func fmtJSON(data ...json.RawMessage) ([]byte, error) {
+func FmtJSON(data ...json.RawMessage) ([]byte, error) {
 	var msg = []json.RawMessage{}
 	for _, d := range data {
 		msg = append(msg, d)

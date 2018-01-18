@@ -72,13 +72,13 @@ func searchContentHandler(res http.ResponseWriter, req *http.Request) {
 		result = append(result, bb[i])
 	}
 
-	j, err := fmtJSON(result...)
+	j, err := FmtJSON(result...)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	j, err = omit(res, req, it(), j)
+	j, err = Omit(res, req, it(), j)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return

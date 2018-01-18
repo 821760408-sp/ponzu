@@ -11,7 +11,7 @@ import (
 	"github.com/tidwall/sjson"
 )
 
-func omit(res http.ResponseWriter, req *http.Request, it interface{}, data []byte) ([]byte, error) {
+func Omit(res http.ResponseWriter, req *http.Request, it interface{}, data []byte) ([]byte, error) {
 	// is it Omittable
 	om, ok := it.(item.Omittable)
 	if !ok {

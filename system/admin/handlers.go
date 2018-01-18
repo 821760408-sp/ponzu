@@ -1515,6 +1515,14 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 				</a>`
 	}
 
+	if _, ok := pt.(format.JSONFormattable); ok {
+		btn += `<br/>
+				<a href="/admin/contents/export?type=` + t + `&format=json" class="green darken-4 btn export-post waves-effect waves-light">
+					<i class="material-icons left">system_update_alt</i>
+					JSON
+				</a>`
+	}
+
 	html += b.String() + script + btn + `</div></div>`
 
 	adminView, err := Admin([]byte(html))

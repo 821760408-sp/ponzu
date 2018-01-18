@@ -88,13 +88,13 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 		result = append(result, bb[i])
 	}
 
-	j, err := fmtJSON(result...)
+	j, err := FmtJSON(result...)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	j, err = omit(res, req, it(), j)
+	j, err = Omit(res, req, it(), j)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
@@ -144,13 +144,13 @@ func contentHandler(res http.ResponseWriter, req *http.Request) {
 
 	push(res, req, p, post)
 
-	j, err := fmtJSON(json.RawMessage(post))
+	j, err := FmtJSON(json.RawMessage(post))
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	j, err = omit(res, req, p, j)
+	j, err = Omit(res, req, p, j)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
@@ -194,13 +194,13 @@ func contentHandlerBySlug(res http.ResponseWriter, req *http.Request) {
 
 	push(res, req, p, post)
 
-	j, err := fmtJSON(json.RawMessage(post))
+	j, err := FmtJSON(json.RawMessage(post))
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	j, err = omit(res, req, p, j)
+	j, err = Omit(res, req, p, j)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
@@ -234,14 +234,14 @@ func uploadsHandler(res http.ResponseWriter, req *http.Request) {
 
 	push(res, req, it(), upload)
 
-	j, err := fmtJSON(json.RawMessage(upload))
+	j, err := FmtJSON(json.RawMessage(upload))
 	if err != nil {
-		log.Println("Error fmtJSON on upload:", err)
+		log.Println("Error FmtJSON on upload:", err)
 		res.WriteHeader(http.StatusInternalServerError)
 		return
 	}
 
-	j, err = omit(res, req, it(), j)
+	j, err = Omit(res, req, it(), j)
 	if err != nil {
 		res.WriteHeader(http.StatusInternalServerError)
 		return
