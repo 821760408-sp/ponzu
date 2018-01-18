@@ -60,7 +60,7 @@ func exportHandler(res http.ResponseWriter, req *http.Request) {
 		exportCSV(res, req, pt, fields)
 
 	case "json":
-		ok := pt().(format.JSONFormattable)
+		_, ok := pt().(format.JSONFormattable)
 		if !ok {
 			res.WriteHeader(http.StatusBadRequest)
 			return
