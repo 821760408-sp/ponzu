@@ -4,7 +4,7 @@
 
 set -ex
 
-cd /go/src/github.com/ponzu-cms/ci/test-project
+cd /go/src/github.com/821760408-sp/ci/test-project
 
 ponzu run --dev-https &        
 
@@ -17,7 +17,7 @@ touch cookies
 
 # Create initial admin user
 curl -v --cookie-jar cookies \
-    -d "name=Test&domain=localhost&email=test@ponzu-cms.org&password=ponzu" \
+    -d "name=Test&domain=localhost&email=test@821760408-sp.org&password=ponzu" \
     -X POST localhost:8080/admin/init
 
 #Test that content types were generated

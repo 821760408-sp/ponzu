@@ -26,7 +26,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/ponzu-cms/ponzu/system/db"
+	"github.com/821760408-sp/ponzu/system/db"
 )
 
 func publicKey(priv interface{}) interface{} {
@@ -117,7 +117,7 @@ func setupDev() {
 		log.Fatalln("Couldn't find working directory to locate or save dev certificates:", err)
 	}
 
-	vendorTLSPath := filepath.Join(pwd, "cmd", "ponzu", "vendor", "github.com", "ponzu-cms", "ponzu", "system", "tls")
+	vendorTLSPath := filepath.Join(pwd, "cmd", "ponzu", "vendor", "github.com", "821760408-sp", "ponzu", "system", "tls")
 	devcertsPath := filepath.Join(vendorTLSPath, "devcerts")
 
 	// clear all old certs if found

@@ -10,7 +10,7 @@ import (
 func buildPonzuServer() error {
 	// copy all ./content files to internal vendor directory
 	src := "content"
-	dst := filepath.Join("cmd", "ponzu", "vendor", "github.com", "ponzu-cms", "ponzu", "content")
+	dst := filepath.Join("cmd", "ponzu", "vendor", "github.com", "821760408-sp", "ponzu", "content")
 	err := emptyDir(dst)
 	if err != nil {
 		return err
@@ -28,7 +28,7 @@ func buildPonzuServer() error {
 		return err
 	}
 
-	// execute go build -o ponzu-cms cmd/ponzu/*.go
+	// execute go build -o 821760408-sp cmd/ponzu/*.go
 	cmdPackageName := strings.Join([]string{".", "cmd", "ponzu"}, "/")
 	buildOptions := []string{"build", "-o", buildOutputName(), cmdPackageName}
 	return execAndWait(gocmd, buildOptions...)
