@@ -1514,10 +1514,10 @@ func contentsHandler(res http.ResponseWriter, req *http.Request) {
 					CSV
 				</a>
 				<br/>
-				<div class="btn import-post waves-effect waves-light">
-					<span><i class="material-icons left">present_to_all</i>Upload</span>
-					<input class="upload" type="file">
-				</div>`
+				<form id="csv-uploader" enctype="multipart/form-data" method="post" action="/admin/contents/import?type=` + t + `&format=csv">
+					<input id="csv-upload" name="myCSV" type="file" />
+					<input type="submit" value="submit" id="submit" />
+				</form>`
 	}
 
 	if _, ok := pt.(format.JSONFormattable); ok {
